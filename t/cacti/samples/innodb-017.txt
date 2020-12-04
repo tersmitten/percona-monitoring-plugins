@@ -1,0 +1,46 @@
+=====================================
+2020-12-04 18:40:44 0x7f924006c700 INNODB MONITOR OUTPUT
+=====================================
+Per second averages calculated from the last 21 seconds
+-----------------
+BACKGROUND THREAD
+-----------------
+----------
+SEMAPHORES
+----------
+------------------------
+LATEST FOREIGN KEY ERROR
+------------------------
+------------
+TRANSACTIONS
+------------
+--------
+FILE I/O
+--------
+ ibuf aio reads:, log i/o's:, sync i/o's:
+-------------------------------------
+INSERT BUFFER AND ADAPTIVE HASH INDEX
+-------------------------------------
+---
+LOG
+---
+----------------------
+BUFFER POOL AND MEMORY
+----------------------
+----------------------
+INDIVIDUAL BUFFER POOL INFO
+----------------------
+---BUFFER POOL 0
+---BUFFER POOL 1
+---BUFFER POOL 2
+---BUFFER POOL 3
+---BUFFER POOL 4
+---BUFFER POOL 5
+---BUFFER POOL 6
+---BUFFER POOL 7
+--------------
+ROW OPERATIONS
+--------------
+----------------------------
+END OF INNODB MONITOR OUTPUT
+============================
