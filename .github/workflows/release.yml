@@ -17,11 +17,7 @@ jobs:
       - name: Check out the codebase
         uses: actions/checkout@v2
       - run: |
-          sed -i "s/__GITHUB_RUN_ID__/$GITHUB_RUN_ID/g" Dockerfile
-          DOCKER_BUILDKIT=1 docker build --rm . --output release
+          sed "s/__GITHUB_RUN_ID__/$GITHUB_RUN_ID/g" Dockerfile | DOCKER_BUILDKIT=1 docker build --rm . --output release -f -
       - uses: actions/upload-artifact@v2
         with:
-          path: |
-            release/*.tar.gz
-            release/*.deb
-            release/*.rpm
+          path: release/*.*

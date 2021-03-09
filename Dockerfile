@@ -10,5 +10,6 @@ WORKDIR /data
 RUN bash build/build.sh $PWD __GITHUB_RUN_ID__
 
 FROM scratch AS export-stage
+COPY --from=build-stage /opt/PKGS/percona-*.tar.gz .
 COPY --from=build-stage /opt/PKGS/percona-*_all.deb .
 COPY --from=build-stage /opt/PKGS/percona-*.noarch.rpm .
