@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 COPY . /data
 WORKDIR /data
-RUN bash build/build.sh $PWD 1
+RUN bash build/build.sh $PWD __GITHUB_RUN_ID__
 
 FROM scratch AS export-stage
 COPY --from=build-stage /opt/PKGS/percona-*_all.deb .
