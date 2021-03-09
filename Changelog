@@ -1,3 +1,8 @@
+2021-03-08: version 1.1.9
+--------------------------------------------------------------------------------
+* Fix deprecations and correct issue with command line args
+* Fix notice for empty ibuf aio reads in innodb status
+* Updating Cacti template definition file
 
 2018-02-05: version 1.1.8
 --------------------------------------------------------------------------------
