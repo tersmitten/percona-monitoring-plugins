@@ -87,7 +87,7 @@ function ok($pass, $test_name = '')
     global $_num_failures;
     global $_num_skips;
 
-    $_test_num++; 
+    $_test_num++;
 
     if ($_num_skips) {
         $_num_skips--;
@@ -124,24 +124,24 @@ function ok($pass, $test_name = '')
     return $pass;
 }
 
-function is($this, $that, $test_name = '')
+function is($a, $b, $test_name = '')
 {
-    $pass = ($this == $that);
+    $pass = ($a == $b);
 
     ok($pass, $test_name);
 
     if (!$pass) {
-        diag("         got: '$this'");
-        diag("    expected: '$that'");
+        diag("         got: '$a'");
+        diag("    expected: '$b'");
     }
 
     return $pass;
 }
 
-function is_deeply($this, $that, $test_name = '')
+function is_deeply($a, $b, $test_name = '')
 {
-   $diff1 = array_diff_assoc($this, $that);
-   $diff2 = array_diff_assoc($that, $this);
+   $diff1 = array_diff_assoc($a, $b);
+   $diff2 = array_diff_assoc($b, $a);
    $pass = count($diff1) == 0;
    ok($pass, $test_name);
    if ( !$pass ) {
@@ -151,16 +151,16 @@ function is_deeply($this, $that, $test_name = '')
    return $pass;
 }
 
-function isnt($this, $that, $test_name = '')
+function isnt($a, $b, $test_name = '')
 {
-    $pass = ($this != $that);
+    $pass = ($a != $b);
 
     ok($pass, $test_name);
 
     if (!$pass) {
-        diag("    '$this'");
+        diag("    '$a'");
         diag('        !=');
-        diag("    '$that'");
+        diag("    '$b'");
     }
 
     return $pass;
@@ -194,12 +194,12 @@ function unlike($string, $pattern, $test_name = '')
     return $pass;
 }
 
-function cmp_ok($this, $operator, $that, $test_name = '')
+function cmp_ok($a, $operator, $b, $test_name = '')
 {
-    eval("\$pass = (\$this $operator \$that);");
+    eval("\$pass = (\$a $operator \$that);");
 
     ob_start();
-    var_dump($this);
+    var_dump($a);
     $_this = trim(ob_get_clean());
 
     ob_start();
@@ -288,7 +288,7 @@ function require_ok($module)
 {
     $pass = ((require $module) == 1);
     return ok($pass);
-} 
+}
 
 function skip($message, $num)
 {
@@ -351,4 +351,3 @@ function _test_end()
 }
 
 ?>
-

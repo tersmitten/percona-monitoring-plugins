@@ -1,0 +1,23 @@
+---
+name: Release
+'on':
+  pull_request:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '30 1 * * 3'
+
+jobs:
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase
+        uses: actions/checkout@v2
+      - run: |
+          sed "s/__GITHUB_RUN_ID__/$GITHUB_RUN_ID/g" Dockerfile | DOCKER_BUILDKIT=1 docker build --rm . --output release -f -
+      - uses: actions/upload-artifact@v2
+        with:
+          path: release/*.*

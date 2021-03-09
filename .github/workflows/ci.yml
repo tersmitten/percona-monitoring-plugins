@@ -1,0 +1,21 @@
+---
+name: CI
+'on':
+  pull_request:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '30 1 * * 3'
+
+jobs:
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase
+        uses: actions/checkout@v2
+      - run: |
+          env bash -n build/build.sh
+          env bash -n make.sh
